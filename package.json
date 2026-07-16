@@ -6,7 +6,10 @@
   "scripts": {
     "challenge1": "tsx src/challenge-1/index.ts",
     "challenge2": "tsx src/challenge-2/index.ts",
-    "challenge3": "tsx src/challenge-3/index.ts"
+    "challenge3": "tsx src/challenge-3/index.ts",
+    "challenge4": "tsx src/challenge-4/index.ts",
+    "challenge5": "tsx src/challenge-5/index.ts",
+    "challenge6": "tsx src/challenge-6/index.ts"
   },
   "repository": {
     "type": "git",
