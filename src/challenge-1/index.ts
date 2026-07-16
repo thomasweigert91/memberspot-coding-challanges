@@ -31,24 +31,22 @@ const input: UserInput[] = [
 const checkOnlineStatus = (users: UserInput[]): OnlineStatusResult => {
   const result: OnlineStatusResult = {};
 
+  const addUser = (
+    status: keyof OnlineStatusResult,
+    username: string,
+  ): void => {
+    result[status] ??= [];
+    result[status].push(username);
+  };
+
   for (const user of users) {
-    switch (user.status) {
-      case "online":
-        if (user.lastActivity > 10) {
-          result.away ??= [];
-          result.away.push(user.username);
-        } else {
-          result.online ??= [];
-          result.online.push(user.username);
-        }
-
-        break;
-      case "offline":
-        result.offline ??= [];
-        result.offline.push(user.username);
-
-        break;
+    if (user.status === "offline") {
+      addUser("offline", user.username);
+      continue;
     }
+
+    const status = user.lastActivity > 10 ? "away" : "online";
+    addUser(status, user.username);
   }
 
   return result;
