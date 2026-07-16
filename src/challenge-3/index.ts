@@ -10,7 +10,7 @@ const orderWords = (input: string): string => {
     for (const char of word) {
       const position = Number(char);
 
-      if (!isNaN(position)) {
+      if (!Number.isNaN(position)) {
         result[position - 1] = word;
         break;
       }
